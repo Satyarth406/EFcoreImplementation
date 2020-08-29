@@ -24,7 +24,7 @@ namespace EFcoreImplementation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IRestaurantRepository, RestaurantInMemoryRepository>();
+            services.AddTransient<IRestaurantRepository, RestaurantRepository>();
             services.AddDbContext<RestaurantDbContext>(options =>
                 options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RestaurantDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddRazorPages();
